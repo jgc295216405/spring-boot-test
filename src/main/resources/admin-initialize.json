@@ -1,0 +1,2453 @@
+{
+  "bizModules": [
+    {
+      "平台管理": {
+        "openIds": [
+        ],
+        "funcModules": [
+          {
+            "用户组和用户管理": {
+              "children": [
+                {
+                  "用户组管理": {
+                    "policies": [
+                      {
+                        "查看用户组详情": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getGroup\"],\"resource\": [\"ncm:*:*:*:/admingroups/*\"] }]}",
+                          "description": "查看用户组详情权限"
+                        },
+                        "查看/搜索用户组列表": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:listGroupsInPages\",\"*:listAllBizModules\"],\"resource\": [\"ncm:*:*:*:/admingroups/list\",\"ncm:*:*:*:/bizmodules\"] }]}",
+                          "description": "查看/搜索用户组列表权限"
+                        }
+                      }
+                    ],
+                    "description": "用户组管理功能子模块"
+                  }
+                },
+                {
+                  "用户管理": {
+                    "policies": [
+                      {
+                        "查看权限范围内的全部组列表": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:listAllGroups\"],\"resource\": [\"ncm:*:*:*:/admingroups\"] }]}",
+                          "description": "查看权限范围内的全部组列表权限"
+                        },
+                        "添加用户": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createOidcUser\",\"*:includedUserList\",\"*:otherUserList\",\"*:checkUser\"],\"resource\": [\"ncm:*:*:*:/oidcusers\",\"ncm:*:*:*:/oidcusers/groups/*/included\",\"ncm:*:*:*:/oidcusers/groups/*/left\",\"ncm:*:*:*:/oidcusers/check\"] }]}",
+                          "description": "添加用户权限"
+                        },
+                        "查看/搜索用户列表": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:findUserInPages\"],\"resource\": [\"ncm:*:*:*:/oidcusers/list\"] }]}",
+                          "description": "查看/搜索用户列表权限"
+                        },
+                        "单个/批量删除用户": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteUser\"],\"resource\": [\"ncm:*:*:*:/oidcusers\"] }]}",
+                          "description": "单个/批量删除用户权限"
+                        }
+                      }
+                    ],
+                    "description": "用户管理功能子模块"
+                  }
+                }
+              ],
+              "description": "用户组和用户管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "用户组和用户管理": {
+              "openId": "hzloubingjun@corp.netease.com",
+              "description": "拥有用户组和用户管理权限的人员组"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:平台管理"
+      },
+      "网易云运营": {
+        "openIds": [
+          "hzbaohaiyan@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "用户管理": {
+              "children": [
+                {
+                  "注册用户管理": {
+                    "policies": [
+                      {
+                        "通信与视频服务注册用户列表查看": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/info\"],\"datarange\":[\"2\"] }]}",
+                          "description": "查看通信与视频服务注册用户列表权限"
+                        },
+                        "云基础服务注册用户列表查看": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/info\"],\"datarange\":[\"1\"] }]}",
+                          "description": "查看云基础服务注册用户列表权限"
+                        },
+                        "云安全服务注册用户列表查看": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/info\"],\"datarange\":[\"3\"] }]}",
+                          "description": "查看云安全服务注册用户列表权限"
+                        },
+                        "未选择感兴趣产品注册用户列表查看": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/info\"],\"datarange\":[\"-1\"] }]}",
+                          "description": "查看未选择感兴趣产品注册用户列表权限"
+                        },
+                        "通信与视频服务列表用户导出": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:downloadUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/download\"],\"datarange\":[\"2\"] }]}",
+                          "description": "通信与视频服务列表用户导出"
+                        },
+                        "云基础服务列表用户导出": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:downloadUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/download\"],\"datarange\":[\"1\"] }]}",
+                          "description": "云基础服务列表用户导出"
+                        },
+                        "云安全服务列表用户导出": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:downloadUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/download\"],\"datarange\":[\"3\"] }]}",
+                          "description": "云安全服务列表用户导出"
+                        },
+                        "未选择感兴趣产品注册列表用户导出": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:downloadUserInfo\"],\"resource\": [\"ncm:*:*:*:/users/download\"],\"datarange\":[\"-1\"] }]}",
+                          "description": "未选择感兴趣产品注册列表用户导出"
+                        }
+                      }
+                    ],
+                    "description": "注册用户管理功能子模块"
+                  }
+                },
+                {
+                  "公告管理": {
+                    "policies": [
+                      {
+                        "公告的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:browseNotice\"],\"resource\": [\"ncm:*:*:*:/notice/management\"] }]}",
+                          "description": "浏览公告的权限"
+                        },
+                        "公告的创建权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createNotice\"],\"resource\": [\"ncm:*:*:*:/notice\"] }]}",
+                          "description": "公告的创建权限"
+                        },
+                        "公告的删除权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteNotice\"],\"resource\": [\"ncm:*:*:*:/notice\"] }]}",
+                          "description": "公告的删除权限"
+                        },
+                        "公告的撤回申请权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:denyApplyNotice\"],\"resource\": [\"ncm:*:*:*:/notice/denyApply/*\"] }]}",
+                          "description": "公告的撤回申请权限"
+                        },
+                        "公告的申请权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:applyNotice\"],\"resource\": [\"ncm:*:*:*:/notice/apply/*\"] }]}",
+                          "description": "公告的申请权限"
+                        },
+                        "公告的编辑权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editNotice\"],\"resource\": [\"ncm:*:*:*:/notice\"] }]}",
+                          "description": "编辑公告的权限"
+                        },
+                        "公告的发布权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishNotice\"],\"resource\": [\"ncm:*:*:*:/notice/publish/*\"] }]}",
+                          "description": "发布公告的权限"
+                        }
+                      }
+                    ],
+                    "description": "公告管理功能模块"
+                  }
+                }
+              ],
+              "description": "用户管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "线上运营": {
+              "openId": "hzbaohaiyan@corp.netease.com",
+              "description": "线上运营用户组"
+            }
+          }
+        ],
+        "description": "网易云运营业务模块"
+      },
+      "公共产品部": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "公告管理": {
+              "children": [
+                {
+                  "公告管理": {
+                    "policies": [
+                      {
+                        "公告的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:browseNotice\"],\"resource\": [\"ncm:*:*:*:/notice/management\"] }]}",
+                          "description": "浏览公告的权限"
+                        },
+                        "公告的创建权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createNotice\"],\"resource\": [\"ncm:*:*:*:/notice\"] }]}",
+                          "description": "公告的创建权限"
+                        },
+                        "公告的删除权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteNotice\"],\"resource\": [\"ncm:*:*:*:/notice\"] }]}",
+                          "description": "公告的删除权限"
+                        },
+                        "公告的撤回申请权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:denyApplyNotice\"],\"resource\": [\"ncm:*:*:*:/notice/denyApply/*\"] }]}",
+                          "description": "公告的撤回申请权限"
+                        },
+                        "公告的申请权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:applyNotice\"],\"resource\": [\"ncm:*:*:*:/notice/apply/*\"] }]}",
+                          "description": "公告的申请权限"
+                        },
+                        "公告的编辑权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editNotice\"],\"resource\": [\"ncm:*:*:*:/notice\"] }]}",
+                          "description": "编辑公告的权限"
+                        },
+                        "公告的发布权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishNotice\"],\"resource\": [\"ncm:*:*:*:/notice/publish/*\"] }]}",
+                          "description": "发布公告的权限"
+                        }
+                      }
+                    ],
+                    "description": "公告管理功能模块"
+                  }
+                }
+              ],
+              "description": "公告管理功能模块"
+            }
+          },
+          {
+            "CMS": {
+              "children": [
+                {
+                  "资源位管理": {
+                    "policies": [
+                      {
+                        "资源位云安全的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchContent\"],\"resource\": [\"ncm:*:*:*:/pages/components\"], \"datarange\":[\"secure\"] }]}",
+                          "description": "资源位云安全的浏览权限"
+                        },
+                        "资源位通信与视频的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchContent\"],\"resource\": [\"ncm:*:*:*:/pages/components\"], \"datarange\":[\"media\"] }]}",
+                          "description": "页面通信与视频的浏览权限"
+                        },
+                        "资源位云计算基础服务的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchContent\"],\"resource\": [\"ncm:*:*:*:/pages/components\"], \"datarange\":[\"cloudcompute\"] }]}",
+                          "description": "资源位云计算基础服务的浏览权限"
+                        },
+                        "资源位市场的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchContent\"],\"resource\": [\"ncm:*:*:*:/pages/components\"], \"datarange\":[\"market\"] }]}",
+                          "description": "资源位市场的浏览权限"
+                        },
+                        "资源位属性的编辑权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editContentAttr\"],\"resource\": [\"ncm:*:*:*:/pages/components/*/propertys\"] }]}",
+                          "description": "编辑资源位属性的权限"
+                        },
+                        "资源位组件的编辑权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editContentComponent\"],\"resource\": [\"ncm:*:*:*:/pages/components/*/components/*\"] }]}",
+                          "description": "编辑资源位组件的权限"
+                        },
+                        "资源位添加组件的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:addComponent\"],\"resource\": [\"ncm:*:*:*:/pages/components/*/components\"] }]}",
+                          "description": "资源位添加组件的权限"
+                        },
+                        "资源位删除组件的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteComponent\"],\"resource\": [\"ncm:*:*:*:/pages/components/*/components/*\"] }]}",
+                          "description": "资源位删除组件的权限"
+                        },
+                        "资源位组件排序的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:sortComponent\"],\"resource\": [\"ncm:*:*:*:/pages/components/*/sorting\"] }]}",
+                          "description": "资源位组件排序的权限"
+                        },
+                        "资源位详情的查看权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:componentDetails\"],\"resource\": [\"ncm:*:*:*:/pages/components/*\"] }]}",
+                          "description": "资源位详情的查看权限"
+                        }
+                      }
+                    ],
+                    "description": "CMS功能模块"
+                  }
+                },
+                {
+                  "页面管理": {
+                    "policies": [
+                      {
+                        "页面云安全的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchPage\"],\"resource\": [\"ncm:*:*:*:/pages/content\"], \"datarange\":[\"secure\"] }]}",
+                          "description": "页面云安全的浏览权限"
+                        },
+                        "页面通信与视频的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchPage\"],\"resource\": [\"ncm:*:*:*:/pages/content\"], \"datarange\":[\"media\"] }]}",
+                          "description": "页面通信与视频的浏览权限"
+                        },
+                        "页面云计算基础服务的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchPage\"],\"resource\": [\"ncm:*:*:*:/pages/content\"], \"datarange\":[\"cloudcompute\"] }]}",
+                          "description": "页面云计算基础服务的浏览权限"
+                        },
+                        "页面市场的浏览权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchPage\"],\"resource\": [\"ncm:*:*:*:/pages/content\"], \"datarange\":[\"market\"] }]}",
+                          "description": "页面市场的浏览权限"
+                        },
+                        "页面属性的编辑权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editPageAttribute\"],\"resource\": [\"ncm:*:*:*:/pages/content/*/propertys\"] }]}",
+                          "description": "编辑页面属性的权限"
+                        },
+                        "页面内容的编辑权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editPageContent\"],\"resource\": [\"ncm:*:*:*:/pages/content/*/components\"] }]}",
+                          "description": "编辑页面内容的权限"
+                        },
+                        "页面详情的查看权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:pageDetails\"],\"resource\": [\"ncm:*:*:*:/pages/content/*\"] }]}",
+                          "description": "页面详情的查看权限"
+                        },
+                        "页面内容审核的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:pendingContent\"],\"resource\": [\"ncm:*:*:*:/pages/content/*/pending\"] }]}",
+                          "description": "页面内容审核的权限"
+                        },
+                        "页面删除组件的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteComponents\"],\"resource\": [\"ncm:*:*:*:/pages/content/*/components/*\"] }]}",
+                          "description": "页面删除组件的权限"
+                        },
+                        "页面内容回滚的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:rollbackContent\"],\"resource\": [\"ncm:*:*:*:/pages/content/*/rollback\"] }]}",
+                          "description": "页面内容回滚的权限"
+                        },
+                        "页面内容拒绝的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:rejectContent\"],\"resource\": [\"ncm:*:*:*:/pages/content/*/reject\"] }]}",
+                          "description": "页面内容拒绝的权限"
+                        },
+                        "页面发布权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishPage\"],\"resource\": [\"ncm:*:*:*:/pages/content/*/published\"] }]}",
+                          "description": "发布页面权限"
+                        }
+                      }
+                    ],
+                    "description": "页面管理功能模块"
+                  }
+                }
+              ],
+              "description": "CMS功能模块"
+            }
+          },
+          {
+            "消息中心": {
+              "children": [
+                {
+                  "消息中心": {
+                    "policies": [
+                      {
+                        "创建消息的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createMessages\"],\"resource\": [\"ncm:*:*:*:/messages\"] }]}",
+                          "description": "创建消息的权限"
+                        },
+                        "消息翻页的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:messagePage\"],\"resource\": [\"ncm:*:*:*:/messages\"] }]}",
+                          "description": "消息翻页的权限"
+                        },
+                        "修改消息的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateMessages\"],\"resource\": [\"ncm:*:*:*:/messages/*\"] }]}",
+                          "description": "修改消息的权限"
+                        },
+                        "查看消息详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:messageDetails\"],\"resource\": [\"ncm:*:*:*:/messages/*\"] }]}",
+                          "description": "查看消息详情的权限"
+                        }
+                      }
+                    ],
+                    "description": "消息中心功能模块"
+                  }
+                }
+              ],
+              "description": "消息中心功能模块"
+            }
+          },
+          {
+            "文档中心": {
+              "children": [
+                {
+                  "文档管理": {
+                    "policies": [
+                      {
+                        "修改挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/upAndMount\"] }]}",
+                          "description": "修改挂载文档的权限"
+                        },
+                        "选择挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:selectAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/selectAndMount\"] }]}",
+                          "description": "选择挂载文档的权限"
+                        },
+                        "新建文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createDocuments\"],\"resource\": [\"ncm:*:*:*:/documents\"] }]}",
+                          "description": "新建文档的权限"
+                        },
+                        "修改文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "修改文档的权限"
+                        },
+                        "删除文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "删除文档的权限"
+                        },
+                        "挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:mountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*/mount/*\"] }]}",
+                          "description": "挂载文档的权限"
+                        },
+                        "取消挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:unmountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/unmount/*\"] }]}",
+                          "description": "取消挂载文档的权限"
+                        },
+                        "发布文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishDocument\"],\"resource\": [\"ncm:*:*:*:/documents/publish/*/*\"] }]}",
+                          "description": "发布文档的权限"
+                        },
+                        "初始化文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:initiateDocument\"],\"resource\": [\"ncm:*:*:*:/documents/initiate\"] }]}",
+                          "description": "初始化文档的权限"
+                        },
+                        "查找文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchDocument\"],\"resource\": [\"ncm:*:*:*:/documents/search\"] }]}",
+                          "description": "查找文档的权限"
+                        },
+                        "提取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "提取文档内容的权限"
+                        },
+                        "查看文档草稿的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDraft\"],\"resource\": [\"ncm:*:*:*:/documents/draft/*\"] }]}",
+                          "description": "查看文档草稿的权限"
+                        },
+                        "云计算查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"c\"] }]}",
+                          "description": "云计算查看产品文档的权限"
+                        },
+                        "云安全查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"dun\"] }]}",
+                          "description": "云安全查看产品文档的权限"
+                        },
+                        "视频云查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"im\"] }]}",
+                          "description": "视频云查看产品文档的权限"
+                        },
+                        "市场查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"market\"] }]}",
+                          "description": "市场查看产品文档的权限"
+                        },
+                        "获取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getMarkdown\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "获取文档内容的权限"
+                        },
+                        "在线渲染文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownRender\"],\"resource\": [\"ncm:*:*:*:/documents/md\"] }]}",
+                          "description": "在线渲染文档的权限"
+                        },
+                        "在线编辑文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownEdit\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "在线编辑文档的权限"
+                        }
+                      }
+                    ],
+                    "description": "文档管理功能模块"
+                  }
+                },
+                {
+                  "资源管理": {
+                    "policies": [
+                      {
+                        "删除文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteAsset\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "删除文档资源管理的权限"
+                        },
+                        "查看文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getAssets\"],\"resource\": [\"ncm:*:*:*:/assets\"] }]}",
+                          "description": "查看文档资源管理的权限"
+                        },
+                        "查看单个文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getById\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "查看单个文档资源管理的权限"
+                        },
+                        "云计算查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"c\"] }]}",
+                          "description": "云计算查看文档产品资源管理的权限"
+                        },
+                        "云安全查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"dun\"] }]}",
+                          "description": "云安全查看文档产品资源管理的权限"
+                        },
+                        "视频云查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"im\"] }]}",
+                          "description": "视频云查看文档产品资源管理的权限"
+                        },
+                        "市场云查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"market\"] }]}",
+                          "description": "市场云查看文档产品资源管理的权限"
+                        },
+                        "查看重复文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDuplicates\"],\"resource\": [\"ncm:*:*:*:/assets/findDuplicate\"] }]}",
+                          "description": "查看重复文档资源管理的权限"
+                        },
+                        "编辑文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editAsset\"],\"resource\": [\"ncm:*:*:*:/asset/edit/*\"] }]}",
+                          "description": "编辑文档资源管理的权限"
+                        }
+                      }
+                    ],
+                    "description": "资源管理功能模块"
+                  }
+                }
+              ],
+              "description": "文档中心功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "官网管理员": {
+              "openId": "hzchenyuting@corp.netease.com",
+              "description": "官网管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:公共产品部"
+      },
+      "活动运营": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "临时活动运营": {
+              "children": [
+                {
+                  "云创大会": {
+                    "policies": [
+                      {
+                        "查看云创大会的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getApplicationList\"],\"resource\": [\"ncm:*:*:*:/yc/list\"] }]}",
+                          "description": "查看云创大会的权限"
+                        },
+                        "导出名单的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:downloadApplicationList\"],\"resource\": [\"ncm:*:*:*:/yc/download\"] }]}",
+                          "description": "导出名单的权限"
+                        },
+                        "导入线下定邀名单的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:importApplicationList\"],\"resource\": [\"ncm:*:*:*:/yc/import\"] }]}",
+                          "description": "导入线下定邀名单的权限"
+                        },
+                        "审核点通过的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:approve\"],\"resource\": [\"ncm:*:*:*:/yc/approve\"] }]}",
+                          "description": "审核点通过的权限"
+                        },
+                        "审核点拒绝的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deny\"],\"resource\": [\"ncm:*:*:*:/yc/deny\"] }]}",
+                          "description": "审核点拒绝的权限"
+                        }
+                      }
+                    ],
+                    "description": "云创大会功能模块"
+                  }
+                }
+              ],
+              "description": "云创大会功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "云创大会管理": {
+              "openId": "hzchenyuting@corp.netease.com",
+              "description": "官网管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:活动运营"
+      },
+      "支付后台-网易云权限": {
+        "openIds": [
+        ],
+        "funcModules": [
+          {
+            "费用中心": {
+              "children": [
+                {
+                  "账户概览": {
+                    "policies": [
+                      {
+                        "查看账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/list\"] }]}",
+                          "description": "查看账户列表的权限"
+                        },
+                        "导出账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/export\"] }]}",
+                          "description": "导出账户列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "账户概览管理功能子模块"
+                  }
+                },
+                {
+                  "资金明细": {
+                    "policies": [
+                      {
+                        "查看资金明细列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsList\"] }]}",
+                          "description": "查看资金明细列表的权限"
+                        },
+                        "查看资金明细详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/*\"] }]}",
+                          "description": "查看资金明细详情的权限"
+                        },
+                        "获取资金明细总额的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutInCome\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsAmount\"] }]}",
+                          "description": "获取资金明细总额的权限"
+                        },
+                        "导出资金明细的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/export\"] }]}",
+                          "description": "导出资金明细的权限"
+                        }
+                      }
+                    ],
+                    "description": "资金明细管理功能子模块"
+                  }
+                },
+                {
+                  "汇款管理": {
+                    "policies": [
+                      {
+                        "查看汇款列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement\"] }]}",
+                          "description": "查看汇款列表的权限"
+                        },
+                        "查看汇款详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/*\"] }]}",
+                          "description": "查看汇款详情的权限"
+                        },
+                        "汇款确认的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payResolveRemit\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/confirm/*\"] }]}",
+                          "description": "汇款确认的权限"
+                        },
+                        "汇款驳回的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payRejectRemit\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/deny/*\"] }]}",
+                          "description": "汇款驳回的权限"
+                        }
+                      }
+                    ],
+                    "description": "汇款管理管理功能子模块"
+                  }
+                },
+                {
+                  "提现管理": {
+                    "policies": [
+                      {
+                        "查看提现列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList\"] }]}",
+                          "description": "查看提现列表的权限"
+                        },
+                        "查看提现详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/*\"] }]}",
+                          "description": "查看提现详情的权限"
+                        },
+                        "提现确认的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payResolveWhitDraw\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/confirm/*\"] }]}",
+                          "description": "提现确认的权限"
+                        },
+                        "提现驳回的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payRejectWhitDraw\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/deny/*\"] }]}",
+                          "description": "提现驳回的权限"
+                        }
+                      }
+                    ],
+                    "description": "提现管理管理功能子模块"
+                  }
+                }
+              ],
+              "description": "费用中心管理功能模块"
+            }
+          },
+          {
+            "产品中心": {
+              "children": [
+                {
+                  "商户管理": {
+                    "policies": [
+                      {
+                        "搜索商户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/query\"] }]}",
+                          "description": "搜索商户列表的权限"
+                        },
+                        "创建商户的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payCreateMerchant\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers\"] }]}",
+                          "description": "创建商户的权限"
+                        },
+                        "查看商户详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"] }]}",
+                          "description": "查看商户详情的权限"
+                        },
+                        "编辑商户的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateMerchant\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"] }]}",
+                          "description": "编辑商户的权限"
+                        },
+                        "查看商户下拉列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantSelectList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/listDealers\"] }]}",
+                          "description": "查看商户下拉列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "商户管理功能子模块"
+                  }
+                },
+                {
+                  "产品管理": {
+                    "policies": [
+                      {
+                        "搜索产品列表列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/query\"] }]}",
+                          "description": "搜索产品列表的权限"
+                        },
+                        "创建产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payCreateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products\"] }]}",
+                          "description": "创建产品的权限"
+                        },
+                        "查看产品详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"] }]}",
+                          "description": "查看产品详情的权限"
+                        },
+                        "编辑产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"] }]}",
+                          "description": "编辑产品的权限"
+                        },
+                        "删除产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payDeleteProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"] }]}",
+                          "description": "删除产品的权限"
+                        }
+                      }
+                    ],
+                    "description": "产品管理功能子模块"
+                  }
+                },
+                {
+                  "白名单管理": {
+                    "policies": [
+                      {
+                        "查看白名单列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhiteListList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/whiteList\"] }]}",
+                          "description": "查看白名单列表的权限"
+                        },
+                        "创建白名单的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payCreateWhiteList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/whiteList/*\"] }]}",
+                          "description": "创建白名单的权限"
+                        },
+                        "编辑白名单的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateWhiteList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/whiteList/*\"] }]}",
+                          "description": "编辑白名单的权限"
+                        },
+                        "删除白名单的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payDeleteWhiteList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/whiteList/*\"] }]}",
+                          "description": "删除白名单的权限"
+                        }
+                      }
+                    ],
+                    "description": "白名单管理功能子模块"
+                  }
+                }
+              ],
+              "description": "产品中心管理功能模块"
+            }
+          },
+          {
+            "券类管理": {
+              "children": [
+                {
+                  "券模板管理": {
+                    "policies": [
+                      {
+                        "查看模板列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates\"] }]}",
+                          "description": "查看模板列表的权限"
+                        },
+                        "查看模板详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*\"] }]}",
+                          "description": "查看模板详情的权限"
+                        },
+                        "启用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/enable\"] }]}",
+                          "description": "启用模板的权限"
+                        },
+                        "禁用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/disable\"] }]}",
+                          "description": "禁用模板的权限"
+                        },
+                        "创建模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template\"] }]}",
+                          "description": "创建模板的权限"
+                        },
+                        "更新模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates/*\"] }]}",
+                          "description": "更新模板的权限"
+                        }
+                      }
+                    ],
+                    "description": "券模板管理功能子模块"
+                  }
+                },
+                {
+                  "代金券管理": {
+                    "policies": [
+                      {
+                        "查看代金券列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon\"] }]}",
+                          "description": "查看代金券列表的权限"
+                        },
+                        "查看代金券详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "查看代金券详情的权限"
+                        },
+                        "启用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/enable\"] }]}",
+                          "description": "启用代金券的权限"
+                        },
+                        "禁用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/disable\"] }]}",
+                          "description": "禁用代金券的权限"
+                        },
+                        "创建代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/\"] }]}",
+                          "description": "创建代金券的权限"
+                        },
+                        "更新代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "更新代金券的权限"
+                        }
+                      }
+                    ],
+                    "description": "代金券管理功能子模块"
+                  }
+                },
+                {
+                  "券定向发放": {
+                    "policies": [
+                      {
+                        "上传定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUploadRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/upload\"] }]}",
+                          "description": "上传定向发放文档的权限"
+                        },
+                        "执行定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponExecutionRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/exec\"] }]}",
+                          "description": "执行定向发放文档的权限"
+                        },
+                        "查看定向发放列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetdReleaseList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/list\"] }]}",
+                          "description": "查看定向发放列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "券定向发放管理功能子模块"
+                  }
+                },
+                {
+                  "用券查询": {
+                    "policies": [
+                      {
+                        "用券查询的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetUsedList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/stat\"] }]}",
+                          "description": "用券查询的权限"
+                        }
+                      }
+                    ],
+                    "description": "用券查询管理功能子模块"
+                  }
+                }
+              ],
+              "description": "券类管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "支付后台": {
+              "openId": "hzloubingjun@corp.netease.com",
+              "description": "拥有支付后台管理权限的人员组"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:活动运营"
+      },
+      "支付后台-财务权限": {
+        "openIds": [
+        ],
+        "funcModules": [
+          {
+            "费用中心": {
+              "children": [
+                {
+                  "账户概览": {
+                    "policies": [
+                      {
+                        "查看账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/list\"] }]}",
+                          "description": "查看账户列表的权限"
+                        },
+                        "导出账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/export\"] }]}",
+                          "description": "导出账户列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "账户概览管理功能子模块"
+                  }
+                },
+                {
+                  "资金明细": {
+                    "policies": [
+                      {
+                        "查看资金明细列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsList\"] }]}",
+                          "description": "查看资金明细列表的权限"
+                        },
+                        "查看资金明细详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/*\"] }]}",
+                          "description": "查看资金明细详情的权限"
+                        },
+                        "获取资金明细总额的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutInCome\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsAmount\"] }]}",
+                          "description": "获取资金明细总额的权限"
+                        },
+                        "导出资金明细的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/export\"] }]}",
+                          "description": "导出资金明细的权限"
+                        }
+                      }
+                    ],
+                    "description": "资金明细管理功能子模块"
+                  }
+                },
+                {
+                  "汇款管理": {
+                    "policies": [
+                      {
+                        "查看汇款列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement\"] }]}",
+                          "description": "查看汇款列表的权限"
+                        },
+                        "查看汇款详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/*\"] }]}",
+                          "description": "查看汇款详情的权限"
+                        },
+                        "汇款确认的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payResolveRemit\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/confirm/*\"] }]}",
+                          "description": "汇款确认的权限"
+                        },
+                        "汇款驳回的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payRejectRemit\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/deny/*\"] }]}",
+                          "description": "汇款驳回的权限"
+                        }
+                      }
+                    ],
+                    "description": "汇款管理管理功能子模块"
+                  }
+                },
+                {
+                  "提现管理": {
+                    "policies": [
+                      {
+                        "查看提现列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList\"] }]}",
+                          "description": "查看提现列表的权限"
+                        },
+                        "查看提现详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/*\"] }]}",
+                          "description": "查看提现详情的权限"
+                        },
+                        "提现确认的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payResolveWhitDraw\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/confirm/*\"] }]}",
+                          "description": "提现确认的权限"
+                        },
+                        "提现驳回的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payRejectWhitDraw\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/deny/*\"] }]}",
+                          "description": "提现驳回的权限"
+                        }
+                      }
+                    ],
+                    "description": "提现管理管理功能子模块"
+                  }
+                }
+              ],
+              "description": "费用中心管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "支付后台-财务权限": {
+              "openId": "cw_test@corp.netease.com",
+              "description": "拥有支付后台财务管理权限的人员组"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:活动运营"
+      },
+      "支付后台-蜂巢权限": {
+        "openIds": [
+        ],
+        "funcModules": [
+          {
+            "费用中心": {
+              "children": [
+                {
+                  "账户概览": {
+                    "policies": [
+                      {
+                        "查看账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/list\"] }]}",
+                          "description": "查看账户列表的权限"
+                        },
+                        "导出账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/export\"] }]}",
+                          "description": "导出账户列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "账户概览管理功能子模块"
+                  }
+                },
+                {
+                  "资金明细": {
+                    "policies": [
+                      {
+                        "查看资金明细列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsList\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "查看资金明细列表的权限"
+                        },
+                        "查看资金明细详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/*\"] }]}",
+                          "description": "查看资金明细详情的权限"
+                        },
+                        "获取资金明细总额的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutInCome\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsAmount\"] }]}",
+                          "description": "获取资金明细总额的权限"
+                        },
+                        "导出资金明细的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/export\"] }]}",
+                          "description": "导出资金明细的权限"
+                        }
+                      }
+                    ],
+                    "description": "资金明细管理功能子模块"
+                  }
+                },
+                {
+                  "汇款管理": {
+                    "policies": [
+                      {
+                        "查看汇款列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement\"] }]}",
+                          "description": "查看汇款列表的权限"
+                        },
+                        "查看汇款详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/*\"] }]}",
+                          "description": "查看汇款详情的权限"
+                        }
+                      }
+                    ],
+                    "description": "汇款管理管理功能子模块"
+                  }
+                },
+                {
+                  "提现管理": {
+                    "policies": [
+                      {
+                        "查看提现列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList\"] }]}",
+                          "description": "查看提现列表的权限"
+                        },
+                        "查看提现详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/*\"] }]}",
+                          "description": "查看提现详情的权限"
+                        }
+                      }
+                    ],
+                    "description": "提现管理管理功能子模块"
+                  }
+                }
+              ],
+              "description": "费用中心管理功能模块"
+            }
+          },
+          {
+            "产品中心": {
+              "children": [
+                {
+                  "商户管理": {
+                    "policies": [
+                      {
+                        "搜索商户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/query\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "搜索商户列表的权限"
+                        },
+                        "查看商户详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "查看商户详情的权限"
+                        },
+                        "编辑商户的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateMerchant\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "编辑商户的权限"
+                        },
+                        "查看商户下拉列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantSelectList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/listDealers\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "查看商户下拉列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "商户管理功能子模块"
+                  }
+                },
+                {
+                  "产品管理": {
+                    "policies": [
+                      {
+                        "搜索产品列表列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/query\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "搜索产品列表的权限"
+                        },
+                        "创建产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payCreateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "创建产品的权限"
+                        },
+                        "查看产品详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "查看产品详情的权限"
+                        },
+                        "编辑产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "编辑产品的权限"
+                        },
+                        "删除产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payDeleteProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"],\"datarange\":[\"FC\"] }]}",
+                          "description": "删除产品的权限"
+                        }
+                      }
+                    ],
+                    "description": "产品管理功能子模块"
+                  }
+                }
+              ],
+              "description": "产品中心管理功能模块"
+            }
+          },
+          {
+            "券类管理": {
+              "children": [
+                {
+                  "券模板管理": {
+                    "policies": [
+                      {
+                        "查看模板列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates\"],\"datarange\":[\"FC\",\"NC\"] }]}",
+                          "description": "查看模板列表的权限"
+                        },
+                        "查看模板详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*\"] }]}",
+                          "description": "查看模板详情的权限"
+                        },
+                        "启用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/enable\"] }]}",
+                          "description": "启用模板的权限"
+                        },
+                        "禁用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/disable\"] }]}",
+                          "description": "禁用模板的权限"
+                        },
+                        "创建模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template\"] }]}",
+                          "description": "创建模板的权限"
+                        },
+                        "更新模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates/*\"] }]}",
+                          "description": "更新模板的权限"
+                        }
+                      }
+                    ],
+                    "description": "券模板管理功能子模块"
+                  }
+                },
+                {
+                  "代金券管理": {
+                    "policies": [
+                      {
+                        "查看代金券列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon\"],\"datarange\":[\"FC\",\"NC\"] }]}",
+                          "description": "查看代金券列表的权限"
+                        },
+                        "查看代金券详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "查看代金券详情的权限"
+                        },
+                        "启用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/enable\"] }]}",
+                          "description": "启用代金券的权限"
+                        },
+                        "禁用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/disable\"] }]}",
+                          "description": "禁用代金券的权限"
+                        },
+                        "创建代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/\"] }]}",
+                          "description": "创建代金券的权限"
+                        },
+                        "更新代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "更新代金券的权限"
+                        }
+                      }
+                    ],
+                    "description": "代金券管理功能子模块"
+                  }
+                },
+                {
+                  "券定向发放": {
+                    "policies": [
+                      {
+                        "上传定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUploadRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/upload\"] }]}",
+                          "description": "上传定向发放文档的权限"
+                        },
+                        "执行定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponExecutionRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/exec\"] }]}",
+                          "description": "执行定向发放文档的权限"
+                        },
+                        "查看定向发放列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetdReleaseList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/list\"] }]}",
+                          "description": "查看定向发放列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "券定向发放管理功能子模块"
+                  }
+                },
+                {
+                  "用券查询": {
+                    "policies": [
+                      {
+                        "用券查询的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetUsedList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/stat\"] }]}",
+                          "description": "用券查询的权限"
+                        }
+                      }
+                    ],
+                    "description": "用券查询管理功能子模块"
+                  }
+                }
+              ],
+              "description": "券类管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "支付后台": {
+              "openId": "fc_test@corp.netease.com",
+              "description": "拥有支付后台管理权限的人员组"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:活动运营"
+      },
+      "支付后台-易盾权限": {
+        "openIds": [
+        ],
+        "funcModules": [
+          {
+            "费用中心": {
+              "children": [
+                {
+                  "账户概览": {
+                    "policies": [
+                      {
+                        "查看账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/list\"] }]}",
+                          "description": "查看账户列表的权限"
+                        },
+                        "导出账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/export\"] }]}",
+                          "description": "导出账户列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "账户概览管理功能子模块"
+                  }
+                },
+                {
+                  "资金明细": {
+                    "policies": [
+                      {
+                        "查看资金明细列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsList\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "查看资金明细列表的权限"
+                        },
+                        "查看资金明细详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/*\"] }]}",
+                          "description": "查看资金明细详情的权限"
+                        },
+                        "获取资金明细总额的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutInCome\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsAmount\"] }]}",
+                          "description": "获取资金明细总额的权限"
+                        },
+                        "导出资金明细的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/export\"] }]}",
+                          "description": "导出资金明细的权限"
+                        }
+                      }
+                    ],
+                    "description": "资金明细管理功能子模块"
+                  }
+                },
+                {
+                  "汇款管理": {
+                    "policies": [
+                      {
+                        "查看汇款列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement\"] }]}",
+                          "description": "查看汇款列表的权限"
+                        },
+                        "查看汇款详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/*\"] }]}",
+                          "description": "查看汇款详情的权限"
+                        }
+                      }
+                    ],
+                    "description": "汇款管理管理功能子模块"
+                  }
+                },
+                {
+                  "提现管理": {
+                    "policies": [
+                      {
+                        "查看提现列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList\"] }]}",
+                          "description": "查看提现列表的权限"
+                        },
+                        "查看提现详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/*\"] }]}",
+                          "description": "查看提现详情的权限"
+                        }
+                      }
+                    ],
+                    "description": "提现管理管理功能子模块"
+                  }
+                }
+              ],
+              "description": "费用中心管理功能模块"
+            }
+          },
+          {
+            "产品中心": {
+              "children": [
+                {
+                  "商户管理": {
+                    "policies": [
+                      {
+                        "搜索商户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/query\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "搜索商户列表的权限"
+                        },
+                        "查看商户详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "查看商户详情的权限"
+                        },
+                        "编辑商户的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateMerchant\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "编辑商户的权限"
+                        },
+                        "查看商户下拉列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantSelectList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/listDealers\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "查看商户下拉列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "商户管理功能子模块"
+                  }
+                },
+                {
+                  "产品管理": {
+                    "policies": [
+                      {
+                        "搜索产品列表列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/query\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "搜索产品列表的权限"
+                        },
+                        "创建产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payCreateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "创建产品的权限"
+                        },
+                        "查看产品详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "查看产品详情的权限"
+                        },
+                        "编辑产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "编辑产品的权限"
+                        },
+                        "删除产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payDeleteProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"],\"datarange\":[\"YD\"] }]}",
+                          "description": "删除产品的权限"
+                        }
+                      }
+                    ],
+                    "description": "产品管理功能子模块"
+                  }
+                }
+              ],
+              "description": "产品中心管理功能模块"
+            }
+          },
+          {
+            "券类管理": {
+              "children": [
+                {
+                  "券模板管理": {
+                    "policies": [
+                      {
+                        "查看模板列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates\"],\"datarange\":[\"YD\",\"NC\"] }]}",
+                          "description": "查看模板列表的权限"
+                        },
+                        "查看模板详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*\"] }]}",
+                          "description": "查看模板详情的权限"
+                        },
+                        "启用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/enable\"] }]}",
+                          "description": "启用模板的权限"
+                        },
+                        "禁用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/disable\"] }]}",
+                          "description": "禁用模板的权限"
+                        },
+                        "创建模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template\"] }]}",
+                          "description": "创建模板的权限"
+                        },
+                        "更新模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates/*\"] }]}",
+                          "description": "更新模板的权限"
+                        }
+                      }
+                    ],
+                    "description": "券模板管理功能子模块"
+                  }
+                },
+                {
+                  "代金券管理": {
+                    "policies": [
+                      {
+                        "查看代金券列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon\"],\"datarange\":[\"YD\",\"NC\"] }]}",
+                          "description": "查看代金券列表的权限"
+                        },
+                        "查看代金券详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "查看代金券详情的权限"
+                        },
+                        "启用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/enable\"] }]}",
+                          "description": "启用代金券的权限"
+                        },
+                        "禁用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/disable\"] }]}",
+                          "description": "禁用代金券的权限"
+                        },
+                        "创建代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/\"] }]}",
+                          "description": "创建代金券的权限"
+                        },
+                        "更新代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "更新代金券的权限"
+                        }
+                      }
+                    ],
+                    "description": "代金券管理功能子模块"
+                  }
+                },
+                {
+                  "券定向发放": {
+                    "policies": [
+                      {
+                        "上传定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUploadRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/upload\"] }]}",
+                          "description": "上传定向发放文档的权限"
+                        },
+                        "执行定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponExecutionRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/exec\"] }]}",
+                          "description": "执行定向发放文档的权限"
+                        },
+                        "查看定向发放列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetdReleaseList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/list\"] }]}",
+                          "description": "查看定向发放列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "券定向发放管理功能子模块"
+                  }
+                },
+                {
+                  "用券查询": {
+                    "policies": [
+                      {
+                        "用券查询的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetUsedList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/stat\"] }]}",
+                          "description": "用券查询的权限"
+                        }
+                      }
+                    ],
+                    "description": "用券查询管理功能子模块"
+                  }
+                }
+              ],
+              "description": "券类管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "支付后台": {
+              "openId": "yd_test@corp.netease.com",
+              "description": "拥有支付后台管理权限的人员组"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:活动运营"
+      },
+      "支付后台-云信权限": {
+        "openIds": [
+        ],
+        "funcModules": [
+          {
+            "费用中心": {
+              "children": [
+                {
+                  "账户概览": {
+                    "policies": [
+                      {
+                        "查看账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/list\"] }]}",
+                          "description": "查看账户列表的权限"
+                        },
+                        "导出账户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetAccountExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/accountSummary/export\"] }]}",
+                          "description": "导出账户列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "账户概览管理功能子模块"
+                  }
+                },
+                {
+                  "资金明细": {
+                    "policies": [
+                      {
+                        "查看资金明细列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsList\"],\"datarange\":[\"YX\"] }]}",
+                          "description": "查看资金明细列表的权限"
+                        },
+                        "查看资金明细详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/*\"] }]}",
+                          "description": "查看资金明细详情的权限"
+                        },
+                        "获取资金明细总额的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutInCome\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsAmount\"] }]}",
+                          "description": "获取资金明细总额的权限"
+                        },
+                        "导出资金明细的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetInOutExport\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/fundsDetail/export\"] }]}",
+                          "description": "导出资金明细的权限"
+                        }
+                      }
+                    ],
+                    "description": "资金明细管理功能子模块"
+                  }
+                },
+                {
+                  "汇款管理": {
+                    "policies": [
+                      {
+                        "查看汇款列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement\"] }]}",
+                          "description": "查看汇款列表的权限"
+                        },
+                        "查看汇款详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetRemitDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/remitManagement/*\"] }]}",
+                          "description": "查看汇款详情的权限"
+                        }
+                      }
+                    ],
+                    "description": "汇款管理管理功能子模块"
+                  }
+                },
+                {
+                  "提现管理": {
+                    "policies": [
+                      {
+                        "查看提现列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList\"] }]}",
+                          "description": "查看提现列表的权限"
+                        },
+                        "查看提现详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetWhitDrawDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/withdrawList/*\"] }]}",
+                          "description": "查看提现详情的权限"
+                        }
+                      }
+                    ],
+                    "description": "提现管理管理功能子模块"
+                  }
+                }
+              ],
+              "description": "费用中心管理功能模块"
+            }
+          },
+          {
+            "产品中心": {
+              "children": [
+                {
+                  "商户管理": {
+                    "policies": [
+                      {
+                        "搜索商户列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/query\"] }]}",
+                          "description": "搜索商户列表的权限"
+                        },
+                        "创建商户的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payCreateMerchant\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers\"] }]}",
+                          "description": "创建商户的权限"
+                        },
+                        "查看商户详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"] }]}",
+                          "description": "查看商户详情的权限"
+                        },
+                        "编辑商户的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateMerchant\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/*\"] }]}",
+                          "description": "编辑商户的权限"
+                        },
+                        "查看商户下拉列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetMerchantSelectList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/dealers/listDealers\"] }]}",
+                          "description": "查看商户下拉列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "商户管理功能子模块"
+                  }
+                },
+                {
+                  "产品管理": {
+                    "policies": [
+                      {
+                        "搜索产品列表列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/query\"] }]}",
+                          "description": "搜索产品列表的权限"
+                        },
+                        "创建产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payCreateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products\"] }]}",
+                          "description": "创建产品的权限"
+                        },
+                        "查看产品详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payGetProductDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"] }]}",
+                          "description": "查看产品详情的权限"
+                        },
+                        "编辑产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payUpdateProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"] }]}",
+                          "description": "编辑产品的权限"
+                        },
+                        "删除产品的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:payDeleteProduct\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/products/*\"] }]}",
+                          "description": "删除产品的权限"
+                        }
+                      }
+                    ],
+                    "description": "产品管理功能子模块"
+                  }
+                }
+              ],
+              "description": "产品中心管理功能模块"
+            }
+          },
+          {
+            "券类管理": {
+              "children": [
+                {
+                  "券模板管理": {
+                    "policies": [
+                      {
+                        "查看模板列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates\"],\"datarange\":[\"YX\",\"NC\"] }]}",
+                          "description": "查看模板列表的权限"
+                        },
+                        "查看模板详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetTemplateDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*\"] }]}",
+                          "description": "查看模板详情的权限"
+                        },
+                        "启用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/enable\"] }]}",
+                          "description": "启用模板的权限"
+                        },
+                        "禁用模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template/*/disable\"] }]}",
+                          "description": "禁用模板的权限"
+                        },
+                        "创建模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/template\"] }]}",
+                          "description": "创建模板的权限"
+                        },
+                        "更新模板的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateTemplate\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/templates/*\"] }]}",
+                          "description": "更新模板的权限"
+                        }
+                      }
+                    ],
+                    "description": "券模板管理功能子模块"
+                  }
+                },
+                {
+                  "代金券管理": {
+                    "policies": [
+                      {
+                        "查看代金券列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon\"],\"datarange\":[\"YX\",\"NC\"] }]}",
+                          "description": "查看代金券列表的权限"
+                        },
+                        "查看代金券详情的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetCouponDetail\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "查看代金券详情的权限"
+                        },
+                        "启用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponEnableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/enable\"] }]}",
+                          "description": "启用代金券的权限"
+                        },
+                        "禁用代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponDisableCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*/disable\"] }]}",
+                          "description": "禁用代金券的权限"
+                        },
+                        "创建代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponCreateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/\"] }]}",
+                          "description": "创建代金券的权限"
+                        },
+                        "更新代金券的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUpdateCoupon\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/*\"] }]}",
+                          "description": "更新代金券的权限"
+                        }
+                      }
+                    ],
+                    "description": "代金券管理功能子模块"
+                  }
+                },
+                {
+                  "券定向发放": {
+                    "policies": [
+                      {
+                        "上传定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponUploadRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/upload\"] }]}",
+                          "description": "上传定向发放文档的权限"
+                        },
+                        "执行定向发放文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponExecutionRelease\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/exec\"] }]}",
+                          "description": "执行定向发放文档的权限"
+                        },
+                        "查看定向发放列表的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetdReleaseList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/release/list\"] }]}",
+                          "description": "查看定向发放列表的权限"
+                        }
+                      }
+                    ],
+                    "description": "券定向发放管理功能子模块"
+                  }
+                },
+                {
+                  "用券查询": {
+                    "policies": [
+                      {
+                        "用券查询的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:couponGetUsedList\"],\"resource\": [\"ncm:*:*:*:/cloud_pay/admin/v1.0/coupon/stat\"] }]}",
+                          "description": "用券查询的权限"
+                        }
+                      }
+                    ],
+                    "description": "用券查询管理功能子模块"
+                  }
+                }
+              ],
+              "description": "券类管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "支付后台": {
+              "openId": "yx_test@corp.netease.com",
+              "description": "拥有支付后台管理权限的人员组"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:活动运营"
+      },
+      "云计算文档中心权限": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "云计算文档中心": {
+              "children": [
+                {
+                  "云计算文档中心": {
+                    "policies": [
+                      {
+                        "修改挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/upAndMount\"] }]}",
+                          "description": "修改挂载文档的权限"
+                        },
+                        "选择挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:selectAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/selectAndMount\"] }]}",
+                          "description": "选择挂载文档的权限"
+                        },
+                        "新建文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createDocuments\"],\"resource\": [\"ncm:*:*:*:/documents\"] }]}",
+                          "description": "新建文档的权限"
+                        },
+                        "修改文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "修改文档的权限"
+                        },
+                        "删除文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "删除文档的权限"
+                        },
+                        "挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:mountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*/mount/*\"] }]}",
+                          "description": "挂载文档的权限"
+                        },
+                        "取消挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:unmountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/unmount/*\"] }]}",
+                          "description": "取消挂载文档的权限"
+                        },
+                        "发布文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishDocument\"],\"resource\": [\"ncm:*:*:*:/documents/publish/*/*\"] }]}",
+                          "description": "发布文档的权限"
+                        },
+                        "初始化文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:initiateDocument\"],\"resource\": [\"ncm:*:*:*:/documents/initiate\"] }]}",
+                          "description": "初始化文档的权限"
+                        },
+                        "查找文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchDocument\"],\"resource\": [\"ncm:*:*:*:/documents/search\"] }]}",
+                          "description": "查找文档的权限"
+                        },
+                        "提取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "提取文档内容的权限"
+                        },
+                        "查看文档草稿的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDraft\"],\"resource\": [\"ncm:*:*:*:/documents/draft/*\"] }]}",
+                          "description": "查看文档草稿的权限"
+                        },
+                        "云计算查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"c\"] }]}",
+                          "description": "云计算查看产品文档的权限"
+                        },
+                        "获取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getMarkdown\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "获取文档内容的权限"
+                        },
+                        "在线渲染文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownRender\"],\"resource\": [\"ncm:*:*:*:/documents/md\"] }]}",
+                          "description": "在线渲染文档的权限"
+                        },
+                        "在线编辑文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownEdit\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "在线编辑文档的权限"
+                        }
+                      }
+                    ],
+                    "description": "云计算文档中心功能模块"
+                  }
+                },
+                {
+                  "云计算资源管理": {
+                    "policies": [
+                      {
+                        "删除文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteAsset\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "删除文档资源管理的权限"
+                        },
+                        "查看文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getAssets\"],\"resource\": [\"ncm:*:*:*:/assets\"] }]}",
+                          "description": "查看文档资源管理的权限"
+                        },
+                        "查看单个文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getById\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "查看单个文档资源管理的权限"
+                        },
+                        "云计算查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"c\"] }]}",
+                          "description": "云计算查看文档产品资源管理的权限"
+                        },
+                        "查看重复文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDuplicates\"],\"resource\": [\"ncm:*:*:*:/assets/findDuplicate\"] }]}",
+                          "description": "查看重复文档资源管理的权限"
+                        },
+                        "编辑文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editAsset\"],\"resource\": [\"ncm:*:*:*:/asset/edit/*\"] }]}",
+                          "description": "编辑文档资源管理的权限"
+                        }
+                      }
+                    ],
+                    "description": "资源管理功能模块"
+                  }
+                }
+              ],
+              "description": "云计算文档中心功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "云计算文档中心权限": {
+              "openId": "hzjiangqingqian@corp.netease.com",
+              "description": "云计算文档中心权限管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:云计算文档中心权限"
+      },
+      "云安全文档中心权限": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "云安全文档中心": {
+              "children": [
+                {
+                  "云安全文档中心": {
+                    "policies": [
+                      {
+                        "修改挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/upAndMount\"] }]}",
+                          "description": "修改挂载文档的权限"
+                        },
+                        "选择挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:selectAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/selectAndMount\"] }]}",
+                          "description": "选择挂载文档的权限"
+                        },
+                        "新建文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createDocuments\"],\"resource\": [\"ncm:*:*:*:/documents\"] }]}",
+                          "description": "新建文档的权限"
+                        },
+                        "修改文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "修改文档的权限"
+                        },
+                        "删除文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "删除文档的权限"
+                        },
+                        "挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:mountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*/mount/*\"] }]}",
+                          "description": "挂载文档的权限"
+                        },
+                        "取消挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:unmountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/unmount/*\"] }]}",
+                          "description": "取消挂载文档的权限"
+                        },
+                        "发布文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishDocument\"],\"resource\": [\"ncm:*:*:*:/documents/publish/*/*\"] }]}",
+                          "description": "发布文档的权限"
+                        },
+                        "初始化文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:initiateDocument\"],\"resource\": [\"ncm:*:*:*:/documents/initiate\"] }]}",
+                          "description": "初始化文档的权限"
+                        },
+                        "查找文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchDocument\"],\"resource\": [\"ncm:*:*:*:/documents/search\"] }]}",
+                          "description": "查找文档的权限"
+                        },
+                        "提取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "提取文档内容的权限"
+                        },
+                        "查看文档草稿的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDraft\"],\"resource\": [\"ncm:*:*:*:/documents/draft/*\"] }]}",
+                          "description": "查看文档草稿的权限"
+                        },
+                        "云安全查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"dun\"] }]}",
+                          "description": "云安全查看产品文档的权限"
+                        },
+                        "获取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getMarkdown\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "获取文档内容的权限"
+                        },
+                        "在线渲染文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownRender\"],\"resource\": [\"ncm:*:*:*:/documents/md\"] }]}",
+                          "description": "在线渲染文档的权限"
+                        },
+                        "在线编辑文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownEdit\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "在线编辑文档的权限"
+                        }
+                      }
+                    ],
+                    "description": "云安全文档中心功能模块"
+                  }
+                },
+                {
+                  "云安全资源管理": {
+                    "policies": [
+                      {
+                        "删除文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteAsset\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "删除文档资源管理的权限"
+                        },
+                        "查看文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getAssets\"],\"resource\": [\"ncm:*:*:*:/assets\"] }]}",
+                          "description": "查看文档资源管理的权限"
+                        },
+                        "查看单个文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getById\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "查看单个文档资源管理的权限"
+                        },
+                        "云安全查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"dun\"] }]}",
+                          "description": "云安全查看文档产品资源管理的权限"
+                        },
+                        "查看重复文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDuplicates\"],\"resource\": [\"ncm:*:*:*:/assets/findDuplicate\"] }]}",
+                          "description": "查看重复文档资源管理的权限"
+                        },
+                        "编辑文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editAsset\"],\"resource\": [\"ncm:*:*:*:/asset/edit/*\"] }]}",
+                          "description": "编辑文档资源管理的权限"
+                        }
+                      }
+                    ],
+                    "description": "资源管理功能模块"
+                  }
+                }
+              ],
+              "description": "云安全文档中心功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "云安全文档中心权限": {
+              "openId": "hzjiangqingqian@corp.netease.com",
+              "description": "云安全文档中心管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:云安全文档中心权限"
+      },
+      "视频云文档中心权限": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "视频云文档中心": {
+              "children": [
+                {
+                  "视频云文档中心": {
+                    "policies": [
+                      {
+                        "修改挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/upAndMount\"] }]}",
+                          "description": "修改挂载文档的权限"
+                        },
+                        "选择挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:selectAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/selectAndMount\"] }]}",
+                          "description": "选择挂载文档的权限"
+                        },
+                        "新建文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createDocuments\"],\"resource\": [\"ncm:*:*:*:/documents\"] }]}",
+                          "description": "新建文档的权限"
+                        },
+                        "修改文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "修改文档的权限"
+                        },
+                        "删除文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "删除文档的权限"
+                        },
+                        "挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:mountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*/mount/*\"] }]}",
+                          "description": "挂载文档的权限"
+                        },
+                        "取消挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:unmountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/unmount/*\"] }]}",
+                          "description": "取消挂载文档的权限"
+                        },
+                        "发布文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishDocument\"],\"resource\": [\"ncm:*:*:*:/documents/publish/*/*\"] }]}",
+                          "description": "发布文档的权限"
+                        },
+                        "初始化文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:initiateDocument\"],\"resource\": [\"ncm:*:*:*:/documents/initiate\"] }]}",
+                          "description": "初始化文档的权限"
+                        },
+                        "查找文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchDocument\"],\"resource\": [\"ncm:*:*:*:/documents/search\"] }]}",
+                          "description": "查找文档的权限"
+                        },
+                        "提取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "提取文档内容的权限"
+                        },
+                        "查看文档草稿的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDraft\"],\"resource\": [\"ncm:*:*:*:/documents/draft/*\"] }]}",
+                          "description": "查看文档草稿的权限"
+                        },
+                        "视频云查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"im\"] }]}",
+                          "description": "视频云查看产品文档的权限"
+                        },
+                        "获取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getMarkdown\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "获取文档内容的权限"
+                        },
+                        "在线渲染文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownRender\"],\"resource\": [\"ncm:*:*:*:/documents/md\"] }]}",
+                          "description": "在线渲染文档的权限"
+                        },
+                        "在线编辑文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownEdit\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "在线编辑文档的权限"
+                        }
+                      }
+                    ],
+                    "description": "视频云文档中心功能模块"
+                  }
+                },
+                {
+                  "视频云资源管理": {
+                    "policies": [
+                      {
+                        "删除文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteAsset\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "删除文档资源管理的权限"
+                        },
+                        "查看文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getAssets\"],\"resource\": [\"ncm:*:*:*:/assets\"] }]}",
+                          "description": "查看文档资源管理的权限"
+                        },
+                        "查看单个文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getById\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "查看单个文档资源管理的权限"
+                        },
+                        "视频云查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"im\"] }]}",
+                          "description": "视频云查看文档产品资源管理的权限"
+                        },
+                        "查看重复文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDuplicates\"],\"resource\": [\"ncm:*:*:*:/assets/findDuplicate\"] }]}",
+                          "description": "查看重复文档资源管理的权限"
+                        },
+                        "编辑文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editAsset\"],\"resource\": [\"ncm:*:*:*:/asset/edit/*\"] }]}",
+                          "description": "编辑文档资源管理的权限"
+                        }
+                      }
+                    ],
+                    "description": "资源管理功能模块"
+                  }
+                }
+              ],
+              "description": "视频云文档中心功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "视频云文档中心权限": {
+              "openId": "hzjiangqingqian@corp.netease.com",
+              "description": "视频云文档中心管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:视频云文档中心权限"
+      },
+      "市场文档中心权限": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "市场文档中心": {
+              "children": [
+                {
+                  "市场文档中心": {
+                    "policies": [
+                      {
+                        "修改挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/upAndMount\"] }]}",
+                          "description": "修改挂载文档的权限"
+                        },
+                        "选择挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:selectAndMount\"],\"resource\": [\"ncm:*:*:*:/documents/selectAndMount\"] }]}",
+                          "description": "选择挂载文档的权限"
+                        },
+                        "新建文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createDocuments\"],\"resource\": [\"ncm:*:*:*:/documents\"] }]}",
+                          "description": "新建文档的权限"
+                        },
+                        "修改文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "修改文档的权限"
+                        },
+                        "删除文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteDocuments\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "删除文档的权限"
+                        },
+                        "挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:mountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*/mount/*\"] }]}",
+                          "description": "挂载文档的权限"
+                        },
+                        "取消挂载文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:unmountDocument\"],\"resource\": [\"ncm:*:*:*:/documents/unmount/*\"] }]}",
+                          "description": "取消挂载文档的权限"
+                        },
+                        "发布文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:publishDocument\"],\"resource\": [\"ncm:*:*:*:/documents/publish/*/*\"] }]}",
+                          "description": "发布文档的权限"
+                        },
+                        "初始化文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:initiateDocument\"],\"resource\": [\"ncm:*:*:*:/documents/initiate\"] }]}",
+                          "description": "初始化文档的权限"
+                        },
+                        "查找文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchDocument\"],\"resource\": [\"ncm:*:*:*:/documents/search\"] }]}",
+                          "description": "查找文档的权限"
+                        },
+                        "提取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDocument\"],\"resource\": [\"ncm:*:*:*:/documents/*\"] }]}",
+                          "description": "提取文档内容的权限"
+                        },
+                        "查看文档草稿的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDraft\"],\"resource\": [\"ncm:*:*:*:/documents/draft/*\"] }]}",
+                          "description": "查看文档草稿的权限"
+                        },
+                        "市场查看产品文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/products\"], \"datarange\":[\"market\"] }]}",
+                          "description": "市场查看产品文档的权限"
+                        },
+                        "获取文档内容的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getMarkdown\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "获取文档内容的权限"
+                        },
+                        "在线渲染文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownRender\"],\"resource\": [\"ncm:*:*:*:/documents/md\"] }]}",
+                          "description": "在线渲染文档的权限"
+                        },
+                        "在线编辑文档的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:MarkdownEdit\"],\"resource\": [\"ncm:*:*:*:/documents/md/*\"] }]}",
+                          "description": "在线编辑文档的权限"
+                        }
+                      }
+                    ],
+                    "description": "市场文档中心功能模块"
+                  }
+                },
+                {
+                  "市场资源管理": {
+                    "policies": [
+                      {
+                        "删除文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteAsset\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "删除文档资源管理的权限"
+                        },
+                        "查看文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getAssets\"],\"resource\": [\"ncm:*:*:*:/assets\"] }]}",
+                          "description": "查看文档资源管理的权限"
+                        },
+                        "查看单个文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getById\"],\"resource\": [\"ncm:*:*:*:/asset/*\"] }]}",
+                          "description": "查看单个文档资源管理的权限"
+                        },
+                        "市场云查看文档产品资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getProducts\"],\"resource\": [\"ncm:*:*:*:/assets/products\"], \"datarange\":[\"market\"] }]}",
+                          "description": "市场云查看文档产品资源管理的权限"
+                        },
+                        "查看重复文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getDuplicates\"],\"resource\": [\"ncm:*:*:*:/assets/findDuplicate\"] }]}",
+                          "description": "查看重复文档资源管理的权限"
+                        },
+                        "编辑文档资源管理的权限": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:editAsset\"],\"resource\": [\"ncm:*:*:*:/asset/edit/*\"] }]}",
+                          "description": "编辑文档资源管理的权限"
+                        }
+                      }
+                    ],
+                    "description": "资源管理功能模块"
+                  }
+                }
+              ],
+              "description": "市场文档中心功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "市场文档中心权限": {
+              "openId": "hzjiangqingqian@corp.netease.com",
+              "description": "市场文档中心管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:市场文档中心权限"
+      },
+      "消息中心-短信设置管理": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzzhuzimeng@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "消息中心短信设置管理": {
+              "children": [
+                {
+                  "短信设置管理": {
+                    "policies": [
+                      {
+                        "新建短信类别": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createCategorys\"],\"resource\": [\"ncm:*:*:*:/categorys\"] }]}",
+                          "description": "新建短信类别"
+                        },
+                        "获取全部短信类别列表": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getCategorys\"],\"resource\": [\"ncm:*:*:*:/categorys\"] }]}",
+                          "description": "获取全部短信类别列表"
+                        },
+                        "修改短信类别列表": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateCategorys\"],\"resource\": [\"ncm:*:*:*:/categorys/*\"] }]}",
+                          "description": "修改短信类别列表"
+                        },
+                        "下线短信模板": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:disableCategorys\"],\"resource\": [\"ncm:*:*:*:/categorys/*/disable\"] }]}",
+                          "description": "下线短信模板"
+                        },
+                        "搜索线短信类别": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchCategorys\"],\"resource\": [\"ncm:*:*:*:/categorys/search\"] }]}",
+                          "description": "搜索线短信类别"
+                        }
+                      }
+                    ],
+                    "description": "短信设置管理"
+                  }
+                }
+              ],
+              "description": "短信设置管理功能模块"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "消息中心-短信设置管理权限": {
+              "openId": "hzzhuzimeng@corp.netease.com",
+              "description": "官网管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:短信设置管理"
+      },
+      "消息中心-短信发送": {
+        "openIds": [
+          "hzlizhaosong@corp.netease.com",
+          "hzjiangqingqian@corp.netease.com",
+          "hzloubingjun@corp.netease.com",
+          "hzzhuzimeng@corp.netease.com",
+          "hzsunzhengyu@corp.netease.com"
+        ],
+        "funcModules": [
+          {
+            "消息中心短信发送": {
+              "children": [
+                {
+                  "短信发送": {
+                    "policies": [
+                      {
+                        "Excel批量导入电话号码": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:importReceives\"],\"resource\": [\"ncm:*:*:*:/mc/sms/import\"] }]}",
+                          "description": "Excel批量导入电话号码"
+                        },
+                        "创建短信批次": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:createSms\"],\"resource\": [\"ncm:*:*:*:/mc/sms\"] }]}",
+                          "description": "创建短信批次"
+                        },
+                        "修改或发送短信批次": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:updateSms\"],\"resource\": [\"ncm:*:*:*:/mc/sms/*\"] }]}",
+                          "description": "修改或发送短信批次"
+                        },
+                        "搜索短信批次": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:searchSms\"],\"resource\": [\"ncm:*:*:*:/mc/sms/search\"] }]}",
+                          "description": "搜索短信批次"
+                        },
+                        "查看短信批次详情": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getSms\"],\"resource\": [\"ncm:*:*:*:/mc/sms/*\"] }]}",
+                          "description": "查看短信批次详情"
+                        },
+                        "搜索短信发送记录": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:recordSms\"],\"resource\": [\"ncm:*:*:*:/mc/sms/record\"] }]}",
+                          "description": "搜索短信发送记录"
+                        },
+                        "删除短信批次": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:deleteSms\"],\"resource\": [\"ncm:*:*:*:/mc/sms/*\"] }]}",
+                          "description": "删除短信批次"
+                        },
+                        "获取全部短信类别列表": {
+                          "definition": "{\"version\": \"1\",\"statement\": [{\"effect\": \"ALLOW\",\"action\": [\"*:getCategorys\"],\"resource\": [\"ncm:*:*:*:/categorys\"] }]}",
+                          "description": "获取全部短信类别列表"
+                        }
+                      }
+                    ],
+                    "description": "消息中心短信发送"
+                  }
+                }
+              ],
+              "description": "消息中心短信发送"
+            }
+          }
+        ],
+        "groups": [
+          {
+            "消息中心-短信发送权限": {
+              "openId": "hzzhuzimeng@corp.netease.com",
+              "description": "官网管理员"
+            }
+          }
+        ],
+        "description": "网易云运营管理平台内置业务模块:消息中心模块"
+      }
+    }
+  ]
+}

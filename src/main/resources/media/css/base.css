@@ -1,0 +1,9 @@
+.base{margin:5px ;padding:3px ;width: auto}
+.activity{background-color: #AAAAAA;line-height: 30px; height: 30px;}
+.listButton{background-color: #AAAAAA;width: 70px;float: right;margin-top: -10px;}
+.bottom{margin-bottom: 15px;}
+.right{float: right}
+.disabled{
+    /*background-color:#ddd;*/
+    color:#989898;
+}

@@ -1,0 +1,33 @@
+/* .om-grid div.hDivBox{padding-right:0px;} */
+ .om-grid div.bDiv td	{border-bottom: 1px solid #E6E6E6;border-right:1px solid #E6E6E6;}
+   .om-grid div.bDiv td div.innerCol{padding:10px 5px;word-wrap:break-word;}
+   .om-grid div.hDiv th{border-right: 1px solid #E6E6E6;}
+   .om-grid div.hDiv{color: #1075B2;box-shadow: 0 2px 2px #F5F5F5;border-top:0px;border-bottom: 1px solid #E6E6E6;background:#f8f8f8;}
+   .om-grid .om-state-default{border-top:0px;}
+   .om-grid div.bDiv table{border-bottom:0px;margin-bottom: 0px;}
+   .om-grid div.pDiv{background:#FFFFFF;padding:12px 0px}
+   .om-grid div.bDiv tr.evenRow{ background-color: #fafafa;}
+   .om-widget-content{border:0px;}
+   .om-widget{font-family: \5FAE\8F6F\96C5\9ED1,\5B8B\4F53,\9ED1\4F53,Verdana,Arial,sans-serif;}
+   .om-grid div.hDiv th div{padding:10px 5px;}
+   .om-grid div.bDiv{overflow:auto;background:none;color: #666;}
+/*   .om-grid div.bDiv tr.om-state-highlight:hover td,.om-grid tr.om-state-highlight td{background:none;}*/
+   .om-widget-content .bDiv .om-state-highlight{color:#000;}
+   .om-widget-content .om-state-highlight{border:0px;}
+   .om-widget-content .om-state-highlight a{color: #2F88CC;}
+   .om-state-default .om-icon{background-image:none;text-indent:0px;}
+   .om-grid div.pDiv .pPageStat{color:#666666}
+   .om-grid div.pDiv div.pButton span{width:auto;height:auto;}
+.om-grid div.pDiv div.pButton{width:auto;height:auto;border:0px;padding:0px 0px;margin:0px 5px;}
+.om-grid div.btnseparator{background:none;margin: 0 0;width: 0px;}
+.om-grid div.pDiv div.pDiv2{width:auto;float:right;}
+.om-grid div.pDiv div.pButton.om-state-hover{background:none;border:0px;color:#1075B2;text-decoration:underline}
+.om-grid div.pDiv div.pButton.om-state-hover span{text-decoration:underline}
+.pDiv .pDiv2{color:#1075B2;}
+.empty-grid{width:185px;height:210px;background-image: url("images/u78_normal.png");background-position:0px 0px;background-repeat: no-repeat;margin:50px auto;}
+.empty-grid p{padding-top: 180px;font-size:16px;font-weight:normal;font-style:normal;text-decoration:none;color:#999999;text-align:center;}
+.pDiv .isPay{display:inline-block;zoom:1; *display:inline;float:left;background-position: 0 -29px;border: 1px solid #0A5D8F;border-radius: 4px 4px 4px 4px;color: #FFFFFF;cursor: pointer;display: inline-block;height: 20px;line-height: 20px;padding: 4px 20px;margin:1px 15px;background-image: url("images/bg_repe.gif");}
+.pDiv .isPay:hover{background-position: 0 -59px;}
+.om-grid div.gBlock{top:47px}
+.pDiv .isExcel{margin-left:20px;line-height:32px;display:inline-block;zoom:1; *display:inline;cursor: pointer;color: #2F88CC;float:left}
+.pDiv .isQueryAll{margin-right:20px;line-height:32px;display:inline-block;zoom:1; *display:inline;cursor: pointer;color: #2F88CC;float:right}
